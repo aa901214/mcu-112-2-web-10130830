@@ -20,6 +20,8 @@ a:active {
 ul {
   padding-left: 0;
   list-style: none;
+  display: flex;
+  justify-content: space-between;
 }
 ul > li {
   border: solid 1px #ccc;
@@ -31,9 +33,15 @@ ul > li {
 }
 
 div.card {
+  padding: 10px;
   border: solid 1px #999;
   border-radius: 8px;
   width: 250px;
+}
+.card-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 input[type="text"] {
   width: 200px;
