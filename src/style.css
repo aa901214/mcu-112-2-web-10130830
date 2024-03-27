@@ -1,5 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 header {
   text-align: center;
+}
+nav {
+  margin-bottom: 10px;
 }
 
 div.card {
@@ -14,10 +21,14 @@ input[type="text"] {
 table {
   border-collapse: collapse;
   width: 100%;
+  margin: 10px 0;
 }
 td.id {
   text-align: center;
   width: 120px;
+}
+th,
+td {
   height: 30px;
 }
 td.company {
@@ -27,4 +38,10 @@ td.company {
 td.price {
   text-align: right;
   width: 100px;
+}
+tr > td {
+  padding: 8px;
+}
+footer {
+  margin-top: 20px;
 }
