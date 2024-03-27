@@ -49,3 +49,7 @@ section.body {
   margin: 0 auto;
   width: 90%;
 }
+table th {
+  background-color: #777;
+  color: white;
+}
