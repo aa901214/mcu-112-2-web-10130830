@@ -45,3 +45,7 @@ tr > td {
 footer {
   margin-top: 20px;
 }
+section.body {
+  margin: 0 auto;
+  width: 90%;
+}
