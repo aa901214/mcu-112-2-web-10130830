@@ -8,5 +8,5 @@ console.log("product Name = ", productName);
 const isShow = true;
 console.log("Is Show = ", isShow);
 
-let createDate = undefined;
+let createDate = new Date();
 console.log("create Date", createDate);
