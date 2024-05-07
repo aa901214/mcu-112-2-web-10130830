@@ -1,4 +1,5 @@
 <app-product-card-list
   [products]="products"
+  (edit)="onEdit($event)"
   (view)="onView($event)"
 ></app-product-card-list>

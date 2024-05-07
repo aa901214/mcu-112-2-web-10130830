@@ -32,5 +32,11 @@ export class ProductCardComponent {
   class = 'product-card';
 
   @Output()
+  edit = new EventEmitter<void>();
+
+  @Output()
+  remove = new EventEmitter<void>();
+
+  @Output()
   view = new EventEmitter<void>();
 }
