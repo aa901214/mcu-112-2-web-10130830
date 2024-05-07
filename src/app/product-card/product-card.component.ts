@@ -24,7 +24,6 @@ export class ProductCardComponent {
   @Input() imgUrl!: string;
 
   @Input({ transform: booleanAttribute }) isShow!: boolean;
-  @Output() isShowChange = new EventEmitter<boolean>();
 
   @Input() createDate!: Date;
   @Input({ transform: numberAttribute }) price!: number;
@@ -32,7 +31,6 @@ export class ProductCardComponent {
   @HostBinding('class')
   class = 'product-card';
 
-  onSetDisplay(isShow: boolean): void {
-    this.isShowChange.emit(isShow);
-  }
+  @Output()
+  view = new EventEmitter<void>();
 }
