@@ -1,7 +1,8 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject, numberAttribute } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../model/product';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-product-detail-page',
@@ -11,18 +12,14 @@ import { Product } from '../model/product';
   styleUrl: './product-detail-page.component.css',
 })
 export class ProductDetailPageComponent {
-  product = new Product({
-    id: 1,
-    name: '書籍 A',
-    authors: ['作者甲', '作者乙', '作者丙'],
-    company: '博碩文件',
-    isShow: true,
-    imgUrl: 'https://api.fnkr.net/testimg/200x200/DDDDDD/999999/?text=img',
-    createDate: new Date(),
-    price: 10000,
-  });
+  @Input({ transform: numberAttribute })
+  id!: number;
+
+  product!: Product;
 
   private router = inject(Router);
+
+  private productService = inject(ProductService);
 
   onEdit(): void {
     this.router.navigate(['product', 'form', this.product.id]);
