@@ -60,4 +60,9 @@ export class ProductService {
 
     this._data.push(new Product({ ...product, id }));
   }
+
+  remove(productid: number): void {
+    const index = this._data.findIndex(({ id }) => productid === id);
+    this._data.splice(index, 1);
+  }
 }
