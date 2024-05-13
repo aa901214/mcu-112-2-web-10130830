@@ -22,6 +22,19 @@ export class ProductPageComponent implements OnInit {
     this.products = this.productService.getList();
   }
 
+  onAdd(): void {
+    const product = new Product({
+      name: '書籍 Z',
+      authors: ['作者甲', '作者乙', '作者丙'],
+      company: '博碩文件',
+      isShow: true,
+      imgUrl: 'https://api.fnkr.net/testimg/200x200/DDDDDD/999999/?text=img',
+      createDate: new Date(),
+      price: 10000,
+    });
+    this.productService.add(product);
+  }
+
   onEdit(product: Product): void {
     this.router.navigate(['product', 'form', product.id]);
   }
