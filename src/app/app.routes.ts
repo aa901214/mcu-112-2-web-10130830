@@ -13,6 +13,10 @@ export const routes: Routes = [
     component: ProductDetailPageComponent,
     resolve: { product: productResolver },
   },
-  { path: 'product/form/:id', component: ProductFormPageComponent },
+  {
+    path: 'product/form/:id',
+    component: ProductFormPageComponent,
+    resolve: { product: productResolver },
+  },
   { path: 'login', component: LoginPageComponent },
 ];
