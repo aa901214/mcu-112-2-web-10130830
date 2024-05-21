@@ -1,4 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs/internal/Subject';
 import { startWith, switchMap } from 'rxjs/operators';
@@ -9,27 +10,20 @@ import { ProductService } from '../services/product.service';
 @Component({
   selector: 'app-product-page',
   standalone: true,
-  imports: [ProductCardListComponent],
+  imports: [AsyncPipe, ProductCardListComponent],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.css',
 })
-export class ProductPageComponent implements OnInit {
+export class ProductPageComponent {
   router = inject(Router);
 
   private productService = inject(ProductService);
-
-  products!: Product[];
-
   private readonly refesh$ = new Subject<void>();
 
-  ngOnInit(): void {
-    this.refesh$
-      .pipe(
-        startWith(undefined),
-        switchMap(() => this.productService.getList())
-      )
-      .subscribe((products) => (this.products = products));
-  }
+  readonly products$ = this.refesh$.pipe(
+    startWith(undefined),
+    switchMap(() => this.productService.getList())
+  );
 
   onAdd(): void {
     const product = new Product({
