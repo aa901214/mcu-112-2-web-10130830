@@ -23,4 +23,8 @@ export class ProductRemoteService extends ProductService {
   override add(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(this.url, { ...product });
   }
+
+  override remove(productid: number): Observable<Product> {
+    return this.httpClient.delete<Product>(`${this.url}/${productid}`);
+  }
 }
