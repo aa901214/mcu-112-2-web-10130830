@@ -13,7 +13,7 @@ POST http://[::]:3000/products HTTP/1.1
 Content-Type: application/json
 
 {
-   "name": "書籍 B",
+   "name": "書籍 F",
    "authors": ["作者甲", "作者乙", "作者丙"],
    "company": "博碩文化",
    "isShow": true,
